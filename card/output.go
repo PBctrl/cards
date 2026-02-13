@@ -5,15 +5,7 @@ import (
 	"strings"
 )
 
-// Front gibt die Karte als String zurück.
-// Dabei soll die Karte in AsciiArt mit
-// einem Rahmen dargestellt werden, z.B.:
-// ┌─────┐
-// │A    │
-// │  ♠  │
-// │    A│
-// └─────┘
-func (c Card) Front() string {
+func (c Card) FrontLines() []string {
 	rank := c.Rank
 	suit := c.Suit
 
@@ -24,6 +16,19 @@ func (c Card) Front() string {
 		fmt.Sprintf("│   %2s│", rank),
 		"└─────┘",
 	}
+	return lines
+}
+
+// Front gibt die Karte als String zurück.
+// Dabei soll die Karte in AsciiArt mit
+// einem Rahmen dargestellt werden, z.B.:
+// ┌─────┐
+// │A    │
+// │  ♠  │
+// │    A│
+// └─────┘
+func (c Card) Front() string {
+	lines := c.FrontLines()
 	return strings.Join(lines, "\n")
 }
 
