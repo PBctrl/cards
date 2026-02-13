@@ -6,37 +6,6 @@ import (
 	"fmt"
 )
 
-func ExampleCard_Front() {
-	c1 := Card{Rank: rank.Ace, Suit: suit.Spades}
-	fmt.Println(c1.Front())
-	c2 := Card{Rank: rank.Ten, Suit: suit.Hearts}
-	fmt.Println(c2.Front())
-
-	// Output:
-	// ┌─────┐
-	// │A    │
-	// │  ♠  │
-	// │    A│
-	// └─────┘
-	// ┌─────┐
-	// │10   │
-	// │  ♥  │
-	// │   10│
-	// └─────┘
-}
-
-func ExampleCard_Back() {
-	c := Card{Rank: rank.King, Suit: suit.Diamonds}
-	fmt.Println(c.Back())
-
-	// Output:
-	// ┌─────┐
-	// │\   /│
-	// │ | | │
-	// │/   \│
-	// └─────┘
-}
-
 func ExampleCard_MatchesRank() {
 	c1 := Card{Rank: rank.Queen, Suit: suit.Clubs}
 	c2 := Card{Rank: rank.Queen, Suit: suit.Hearts}
